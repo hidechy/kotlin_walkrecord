@@ -7,6 +7,8 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+import androidx.lifecycle.asLiveData
+
 class ViewModel(application: Application) : AndroidViewModel(application) {
 
     private val walkRecordRepository: WalkRecordRepository
@@ -26,4 +28,9 @@ class ViewModel(application: Application) : AndroidViewModel(application) {
             walkRecordRepository.addRecord(walkRecords)
         }
     }
+
+    fun readMonthRecords(year:String, month:String): LiveData<List<WalkRecords>> {
+        return walkRecordRepository.readMonthRecords(year, month).asLiveData()
+    }
+
 }
