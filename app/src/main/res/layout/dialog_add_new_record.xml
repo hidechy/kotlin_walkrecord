@@ -27,8 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="date"
-            android:textAllCaps="false"
-            />
+            android:textAllCaps="false" />
 
         <TextView
             android:id="@+id/tv_date"
@@ -38,8 +37,7 @@
             android:layout_marginTop="64dp"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -53,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="walk step"
-            android:inputType="text" />
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -67,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="walk distance"
-            android:inputType="text" />
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="walk step"
-            android:inputType="text" />
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="walk distance"
-            android:inputType="text" />
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
