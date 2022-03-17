@@ -19,4 +19,10 @@ interface WalkRecordDao {
     @Update
     fun update(walkRecords: WalkRecords)
 
+    @Delete
+    fun delete(walkRecords: WalkRecords)
+
+    @Query("delete from walk_records")
+    fun deleteAll()
+
 }

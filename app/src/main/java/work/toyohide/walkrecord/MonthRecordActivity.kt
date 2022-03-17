@@ -56,7 +56,8 @@ class MonthRecordActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
 
         builder.setPositiveButton("Delete") { _, _ ->
-            Toast.makeText(this, "Delete", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "Delete", Toast.LENGTH_SHORT).show()
+            viewModel.deleteData(walkRecords)
         }
 
         builder.setNegativeButton("Update") { _, _ ->

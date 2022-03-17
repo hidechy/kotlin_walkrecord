@@ -18,4 +18,12 @@ class WalkRecordRepository(private val walkRecordDao: WalkRecordDao) {
         walkRecordDao.update(walkRecords)
     }
 
+    fun deleteData(walkRecords: WalkRecords){
+        walkRecordDao.delete(walkRecords)
+    }
+
+    fun deleteAll(){
+        walkRecordDao.deleteAll()
+    }
+
 }

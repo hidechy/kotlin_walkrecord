@@ -39,4 +39,16 @@ class ViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    fun deleteData(walkRecords: WalkRecords){
+        viewModelScope.launch(Dispatchers.IO){
+            walkRecordRepository.deleteData(walkRecords)
+        }
+    }
+
+    fun deleteAllData(){
+        viewModelScope.launch(Dispatchers.IO){
+            walkRecordRepository.deleteAll()
+        }
+    }
+
 }

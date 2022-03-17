@@ -34,5 +34,11 @@ class AllRecordActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(ViewModel::class.java)
         viewModel.readAllRecords.observe(this, {walkRecords -> adapter.setData(walkRecords) })
 
+        ///
+        val btn_alldelete:Button = findViewById(R.id.btn_alldelete)
+        btn_alldelete.setOnClickListener{
+            viewModel.deleteAllData()
+        }
+
     }
 }
