@@ -33,4 +33,10 @@ class ViewModel(application: Application) : AndroidViewModel(application) {
         return walkRecordRepository.readMonthRecords(year, month).asLiveData()
     }
 
+    fun updateData(walkRecords: WalkRecords){
+        viewModelScope.launch(Dispatchers.IO){
+            walkRecordRepository.updateData(walkRecords)
+        }
+    }
+
 }

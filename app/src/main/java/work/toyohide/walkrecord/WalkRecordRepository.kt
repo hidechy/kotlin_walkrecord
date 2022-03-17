@@ -1,7 +1,6 @@
 package work.toyohide.walkrecord
 
 import androidx.lifecycle.LiveData
-
 import kotlinx.coroutines.flow.Flow
 
 class WalkRecordRepository(private val walkRecordDao: WalkRecordDao) {
@@ -13,6 +12,10 @@ class WalkRecordRepository(private val walkRecordDao: WalkRecordDao) {
 
     fun readMonthRecords(year:String, month:String): Flow<List<WalkRecords>> {
         return walkRecordDao.readMonthRecords(year, month)
+    }
+
+    fun updateData(walkRecords: WalkRecords){
+        walkRecordDao.update(walkRecords)
     }
 
 }
