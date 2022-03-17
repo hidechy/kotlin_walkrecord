@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudioMakes2_2/walkrecord2/app/src/main/res/layout/activity_all_record.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioMakes2_2/walkrecord2/app/src/main/res/layout/activity_main.xml" value="0.17481884057971014" />
+        <entry key="..\:/AndroidStudioMakes2_2/walkrecord2/app/src/main/res/layout/activity_month_record.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioMakes2_2/walkrecord2/app/src/main/res/layout/dialog_add_new_record.xml" value="0.24583333333333332" />
+        <entry key="..\:/AndroidStudioMakes2_2/walkrecord2/app/src/main/res/layout/list_item.xml" value="0.12447916666666667" />
+        <entry key="..\:/AndroidStudioMakes2_2/walkrecord2/app/src/main/res/layout/list_walk_item.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
