@@ -2,19 +2,16 @@ package work.toyohide.walkrecord
 
 import android.app.DatePickerDialog
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.app.Dialog
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.text.TextUtils
 import android.view.Window
 import android.view.WindowManager
-import android.widget.EditText
+import android.widget.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -22,14 +19,7 @@ class MonthRecordActivity : AppCompatActivity() {
 
     private lateinit var viewModel: ViewModel
 
-
-
-
     private lateinit var yearmonth: String
-
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +34,7 @@ class MonthRecordActivity : AppCompatActivity() {
         tv_yearmonth.text = yearmonth
 
         ///
-        val btn_back: Button = findViewById(R.id.btn_back)
+        val btn_back: ImageButton = findViewById(R.id.btn_back)
         btn_back.setOnClickListener {
             this.finish()
         }
@@ -66,7 +56,7 @@ class MonthRecordActivity : AppCompatActivity() {
         adapter.onItemClick = { walkRecords -> showActionDialog(walkRecords) }
 
         ///
-        val btn_month_input:Button = findViewById(R.id.btn_month_input)
+        val btn_month_input:ImageButton = findViewById(R.id.btn_month_input)
         btn_month_input.setOnClickListener {
             showAddRecordDialog()
         }
@@ -103,7 +93,7 @@ class MonthRecordActivity : AppCompatActivity() {
         }
 
         ///
-        val btn_datepicker: Button = dialog.findViewById(R.id.btn_datepicker)
+        val btn_datepicker: ImageButton = dialog.findViewById(R.id.btn_datepicker)
         btn_datepicker.setOnClickListener {
             var exYearmonth = yearmonth!!.split('-')
 
@@ -116,13 +106,13 @@ class MonthRecordActivity : AppCompatActivity() {
         }
 
         ///
-        val btn_cancel: Button = dialog.findViewById(R.id.btn_cancel)
+        val btn_cancel: ImageButton = dialog.findViewById(R.id.btn_cancel)
         btn_cancel.setOnClickListener {
             dialog.dismiss()
         }
 
         ///
-        val btn_add: Button = dialog.findViewById(R.id.btn_add)
+        val btn_add: ImageButton = dialog.findViewById(R.id.btn_add)
         btn_add.setOnClickListener {
             if (inputCheck(et_step.text.toString(), et_distance.text.toString())) {
 //                Toast.makeText(this, "${et_step.text.toString()} / ${et_distance.text.toString()}", Toast.LENGTH_LONG).show()
@@ -194,12 +184,12 @@ class MonthRecordActivity : AppCompatActivity() {
         et_step.setText(walkRecords.step)
         et_distance.setText(walkRecords.distance)
 
-        val btn_update_cancel: Button = dialog.findViewById(R.id.btn_update_cancel)
+        val btn_update_cancel: ImageButton = dialog.findViewById(R.id.btn_update_cancel)
         btn_update_cancel.setOnClickListener {
             dialog.dismiss()
         }
 
-        val btn_update_execute: Button = dialog.findViewById(R.id.btn_update_execute)
+        val btn_update_execute: ImageButton = dialog.findViewById(R.id.btn_update_execute)
         btn_update_execute.setOnClickListener {
 
             if (inputCheck(et_step.text.toString(), et_distance.text.toString())) {

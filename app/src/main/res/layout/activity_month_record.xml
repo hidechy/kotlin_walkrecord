@@ -18,15 +18,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="back"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_close_24"
+        android:backgroundTint="@color/white"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_list"
@@ -39,17 +41,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_back" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_month_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/black"
-        android:text="input"
-        android:textColor="@color/white"
+        android:backgroundTint="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/btn_back"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        app:srcCompat="@drawable/ic_baseline_input_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

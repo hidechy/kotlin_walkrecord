@@ -3,10 +3,13 @@
     package="work.toyohide.walkrecord">
 
     <application
+
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+
+        android:icon="@drawable/icon_ashiato"
+        android:roundIcon="@drawable/icon_ashiato"
+
         android:supportsRtl="true"
         android:theme="@style/Theme.Walkrecord">
         <activity

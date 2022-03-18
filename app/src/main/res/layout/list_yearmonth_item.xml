@@ -8,6 +8,7 @@
     card_view:cardCornerRadius="20dp"
     card_view:cardElevation="8dp"
     card_view:cardBackgroundColor="@color/cardview_light_background"
+    android:alpha="0.25"
     >
 
     <RelativeLayout

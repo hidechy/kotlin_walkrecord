@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity(), ListClickInterface {
         }
 
         ///
-        val btn_allrecord:Button = findViewById(R.id.btn_allrecord)
+        val btn_allrecord:ImageButton = findViewById(R.id.btn_allrecord)
         btn_allrecord.setOnClickListener{
             val intent = Intent(this@MainActivity, AllRecordActivity::class.java)
             startActivity(intent)
@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity(), ListClickInterface {
         }
 
         ///
-        val btn_datepicker: Button = dialog.findViewById(R.id.btn_datepicker)
+        val btn_datepicker: ImageButton = dialog.findViewById(R.id.btn_datepicker)
         btn_datepicker.setOnClickListener {
             DatePickerDialog(
                 this, datePicker,
@@ -103,13 +103,13 @@ class MainActivity : AppCompatActivity(), ListClickInterface {
         }
 
         ///
-        val btn_cancel: Button = dialog.findViewById(R.id.btn_cancel)
+        val btn_cancel: ImageButton = dialog.findViewById(R.id.btn_cancel)
         btn_cancel.setOnClickListener {
             dialog.dismiss()
         }
 
         ///
-        val btn_add: Button = dialog.findViewById(R.id.btn_add)
+        val btn_add: ImageButton = dialog.findViewById(R.id.btn_add)
         btn_add.setOnClickListener {
             if (inputCheck(et_step.text.toString(), et_distance.text.toString())) {
 //                Toast.makeText(this, "${et_step.text.toString()} / ${et_distance.text.toString()}", Toast.LENGTH_LONG).show()

@@ -2,7 +2,7 @@ package work.toyohide.walkrecord
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import android.widget.ImageButton
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +19,7 @@ class AllRecordActivity : AppCompatActivity() {
         setContentView(R.layout.activity_all_record)
 
         ///
-        val btn_back: Button = findViewById(R.id.btn_back)
+        val btn_back: ImageButton = findViewById(R.id.btn_back)
         btn_back.setOnClickListener{
             this.finish()
         }
@@ -35,7 +35,7 @@ class AllRecordActivity : AppCompatActivity() {
         viewModel.readAllRecords.observe(this, {walkRecords -> adapter.setData(walkRecords) })
 
         ///
-        val btn_alldelete:Button = findViewById(R.id.btn_alldelete)
+        val btn_alldelete:ImageButton = findViewById(R.id.btn_alldelete)
         btn_alldelete.setOnClickListener{
             viewModel.deleteAllData()
         }
