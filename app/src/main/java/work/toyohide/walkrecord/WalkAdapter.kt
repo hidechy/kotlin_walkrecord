@@ -21,8 +21,8 @@ class WalkAdapter : RecyclerView.Adapter<WalkAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: WalkAdapter.ViewHolder, position: Int) {
         val currentItem = walkRecords[position]
         holder.itemView.tv_date.text = currentItem.date
-        holder.itemView.tv_step.text = currentItem.step
-        holder.itemView.tv_distance.text = currentItem.distance
+        holder.itemView.tv_step.text = currentItem.step + " step."
+        holder.itemView.tv_distance.text = currentItem.distance + "m."
 
         holder.itemView.setOnClickListener{
             onItemClick?.invoke(walkRecords[position])

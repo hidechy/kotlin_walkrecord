@@ -1,5 +1,6 @@
 package work.toyohide.walkrecord
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -14,18 +15,32 @@ import android.text.TextUtils
 import android.view.Window
 import android.view.WindowManager
 import android.widget.EditText
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MonthRecordActivity : AppCompatActivity() {
 
     private lateinit var viewModel: ViewModel
 
+
+
+
+    private lateinit var yearmonth: String
+
+
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        this.supportActionBar?.hide()
+
         setContentView(R.layout.activity_month_record)
 
         ///
         val tv_yearmonth: TextView = findViewById(R.id.tv_yearmonth)
-        val yearmonth = intent.getStringExtra("yearmonth")
+        yearmonth = intent.getStringExtra("yearmonth").toString()
         tv_yearmonth.text = yearmonth
 
         ///
@@ -49,6 +64,93 @@ class MonthRecordActivity : AppCompatActivity() {
 
         ///
         adapter.onItemClick = { walkRecords -> showActionDialog(walkRecords) }
+
+        ///
+        val btn_month_input:Button = findViewById(R.id.btn_month_input)
+        btn_month_input.setOnClickListener {
+            showAddRecordDialog()
+        }
+
+    }
+
+    private fun showAddRecordDialog() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.dialog_add_new_record)
+        dialog.setCancelable(true)
+
+        val layoutParams = WindowManager.LayoutParams()
+        layoutParams.copyFrom(dialog.window!!.attributes)
+        layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT
+        layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT
+
+        val et_step: EditText = dialog.findViewById(R.id.et_step)
+        val et_distance: EditText = dialog.findViewById(R.id.et_distance)
+
+        ///
+        val tv_date: TextView = dialog.findViewById(R.id.tv_date)
+        val myCalendar = Calendar.getInstance()
+
+        ///
+        val datePicker = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+            myCalendar.set(Calendar.YEAR, year)
+            myCalendar.set(Calendar.MONTH, month)
+            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+
+            val myFormat = "yyyy/MM/dd"
+            val sdf = SimpleDateFormat(myFormat, Locale.JAPAN)
+            tv_date.text = sdf.format(myCalendar.time)
+        }
+
+        ///
+        val btn_datepicker: Button = dialog.findViewById(R.id.btn_datepicker)
+        btn_datepicker.setOnClickListener {
+            var exYearmonth = yearmonth!!.split('-')
+
+            DatePickerDialog(
+        this, datePicker,
+        exYearmonth[0].toInt(),
+        exYearmonth[1].toInt() - 1,
+        1
+            ).show()
+        }
+
+        ///
+        val btn_cancel: Button = dialog.findViewById(R.id.btn_cancel)
+        btn_cancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        ///
+        val btn_add: Button = dialog.findViewById(R.id.btn_add)
+        btn_add.setOnClickListener {
+            if (inputCheck(et_step.text.toString(), et_distance.text.toString())) {
+//                Toast.makeText(this, "${et_step.text.toString()} / ${et_distance.text.toString()}", Toast.LENGTH_LONG).show()
+
+                val tv_date: TextView = dialog.findViewById(R.id.tv_date)
+                if (TextUtils.isEmpty(tv_date.text)) {
+                    Toast.makeText(this, "date required!!", Toast.LENGTH_LONG).show()
+                } else {
+                    var exDate = (tv_date.text).split("/")
+
+                    val walkRecords = WalkRecords(
+                        0, tv_date.text.toString(), exDate[0], exDate[1], exDate[2], et_step.text.toString(), et_distance
+                            .text.toString()
+                    )
+
+                    viewModel.addRecord(walkRecords)
+
+                    Toast.makeText(this, "data added", Toast.LENGTH_LONG).show()
+
+                    dialog.dismiss()
+                }
+            } else {
+                Toast.makeText(this, "step or distance required!!", Toast.LENGTH_LONG).show()
+            }
+        }
+
+        dialog.show()
+        dialog.window!!.attributes = layoutParams
 
     }
 

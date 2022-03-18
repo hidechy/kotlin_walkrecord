@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity(), ListClickInterface {
         val fab_add: FloatingActionButton = findViewById(R.id.fab_add)
         fab_add.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#e6e6fa"))
         fab_add.setOnClickListener {
-            showAddNoteDialog()
+            showAddRecordDialog()
         }
 
         ///
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity(), ListClickInterface {
         startActivity(intent)
     }
 
-    private fun showAddNoteDialog() {
+    private fun showAddRecordDialog() {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.dialog_add_new_record)
