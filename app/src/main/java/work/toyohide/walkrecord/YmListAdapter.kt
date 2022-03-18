@@ -1,6 +1,5 @@
 package work.toyohide.walkrecord
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import java.time.LocalDate
 import java.util.*
 
-class YmListAdapter(val context: Context, val listClickInterface: ListClickInterface) : RecyclerView.Adapter<YmListAdapter.ViewHolder>() {
+class YmListAdapter(private val listClickInterface: ListClickInterface) : RecyclerView.Adapter<YmListAdapter.ViewHolder>() {
 
     private val ym: ArrayList<String> = arrayListOf()
 

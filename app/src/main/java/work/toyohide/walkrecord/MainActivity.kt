@@ -31,14 +31,14 @@ class MainActivity : AppCompatActivity(), ListClickInterface {
 
         ///
         val rv_list: RecyclerView = findViewById(R.id.rv_list)
-        val adapter = YmListAdapter(this, this)
+        val adapter = YmListAdapter(this)
 
         rv_list.layoutManager = LinearLayoutManager(this)
         rv_list.adapter = adapter
 
         ///
         val tv_main: TextView = findViewById(R.id.tv_main)
-        tv_main.text = "Walking Record"
+        tv_main.setText("Walking Record")
 
         ///
         val fab_add: FloatingActionButton = findViewById(R.id.fab_add)
@@ -112,8 +112,6 @@ class MainActivity : AppCompatActivity(), ListClickInterface {
         val btn_add: ImageButton = dialog.findViewById(R.id.btn_add)
         btn_add.setOnClickListener {
             if (inputCheck(et_step.text.toString(), et_distance.text.toString())) {
-//                Toast.makeText(this, "${et_step.text.toString()} / ${et_distance.text.toString()}", Toast.LENGTH_LONG).show()
-
                 val tv_date: TextView = dialog.findViewById(R.id.tv_date)
                 if (TextUtils.isEmpty(tv_date.text)) {
                     Toast.makeText(this, "date required!!", Toast.LENGTH_LONG).show()
